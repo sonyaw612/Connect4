@@ -1,0 +1,15 @@
+C:\Users\mspat\Documents\Revature\Mspatel\Connect4\Connect4\bin\Debug\net7.0\Connect4.exe
+C:\Users\mspat\Documents\Revature\Mspatel\Connect4\Connect4\bin\Debug\net7.0\Connect4.deps.json
+C:\Users\mspat\Documents\Revature\Mspatel\Connect4\Connect4\bin\Debug\net7.0\Connect4.runtimeconfig.json
+C:\Users\mspat\Documents\Revature\Mspatel\Connect4\Connect4\bin\Debug\net7.0\Connect4.dll
+C:\Users\mspat\Documents\Revature\Mspatel\Connect4\Connect4\bin\Debug\net7.0\Connect4.pdb
+C:\Users\mspat\Documents\Revature\Mspatel\Connect4\Connect4\obj\Debug\net7.0\Connect4.csproj.AssemblyReference.cache
+C:\Users\mspat\Documents\Revature\Mspatel\Connect4\Connect4\obj\Debug\net7.0\Connect4.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\mspat\Documents\Revature\Mspatel\Connect4\Connect4\obj\Debug\net7.0\Connect4.AssemblyInfoInputs.cache
+C:\Users\mspat\Documents\Revature\Mspatel\Connect4\Connect4\obj\Debug\net7.0\Connect4.AssemblyInfo.cs
+C:\Users\mspat\Documents\Revature\Mspatel\Connect4\Connect4\obj\Debug\net7.0\Connect4.csproj.CoreCompileInputs.cache
+C:\Users\mspat\Documents\Revature\Mspatel\Connect4\Connect4\obj\Debug\net7.0\Connect4.dll
+C:\Users\mspat\Documents\Revature\Mspatel\Connect4\Connect4\obj\Debug\net7.0\refint\Connect4.dll
+C:\Users\mspat\Documents\Revature\Mspatel\Connect4\Connect4\obj\Debug\net7.0\Connect4.pdb
+C:\Users\mspat\Documents\Revature\Mspatel\Connect4\Connect4\obj\Debug\net7.0\Connect4.genruntimeconfig.cache
+C:\Users\mspat\Documents\Revature\Mspatel\Connect4\Connect4\obj\Debug\net7.0\ref\Connect4.dll

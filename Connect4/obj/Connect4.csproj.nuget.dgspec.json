@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Sonya\\Revature\\230206-NET\\Trainer_Code\\wk1\\Exercises\\Connect4\\Connect4\\Connect4.csproj": {}
+    "C:\\Users\\mspat\\Documents\\Revature\\Mspatel\\Connect4\\Connect4\\Connect4.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Sonya\\Revature\\230206-NET\\Trainer_Code\\wk1\\Exercises\\Connect4\\Connect4\\Connect4.csproj": {
+    "C:\\Users\\mspat\\Documents\\Revature\\Mspatel\\Connect4\\Connect4\\Connect4.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Sonya\\Revature\\230206-NET\\Trainer_Code\\wk1\\Exercises\\Connect4\\Connect4\\Connect4.csproj",
+        "projectUniqueName": "C:\\Users\\mspat\\Documents\\Revature\\Mspatel\\Connect4\\Connect4\\Connect4.csproj",
         "projectName": "Connect4",
-        "projectPath": "C:\\Users\\Sonya\\Revature\\230206-NET\\Trainer_Code\\wk1\\Exercises\\Connect4\\Connect4\\Connect4.csproj",
-        "packagesPath": "C:\\Users\\Sonya\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Sonya\\Revature\\230206-NET\\Trainer_Code\\wk1\\Exercises\\Connect4\\Connect4\\obj\\",
+        "projectPath": "C:\\Users\\mspat\\Documents\\Revature\\Mspatel\\Connect4\\Connect4\\Connect4.csproj",
+        "packagesPath": "C:\\Users\\mspat\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\mspat\\Documents\\Revature\\Mspatel\\Connect4\\Connect4\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Sonya\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\mspat\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
