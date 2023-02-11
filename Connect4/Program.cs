@@ -57,8 +57,8 @@ public class Connect4 {
                 Console.WriteLine("Invalid Row/Column. Please input a number 1 through 3");
                 continue;
             }
-            if(tttGrid[playerRow, playerCol] == null) {
-                tttGrid[playerRow, playerCol] = currPlayer;
+            if(tttGrid[playerRow, playerCol] == 0) {
+                
             }
             int val = tttGrid[playerRow, playerCol];
 
