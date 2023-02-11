@@ -13,7 +13,7 @@ using System;
 public class Connect4 {
     public static void Main(string[] args) {
 
-        int[,] tttGrid = new int[3, 1];
+        int[,] tttGrid = new int[3, 3];
         // foreach(int box in tttGrid.Length){
         // Array.Fill(tttGrid[box], 0);
         // }
@@ -21,8 +21,9 @@ public class Connect4 {
         const int player2 = 2;
         int currentPlayer = player1;
 
-        int gridRow = tttGrid.Length;
-        int gridCol = tttGrid.GetLength(0);
+    // Length is the total length of the whole array
+        // int gridRow = tttGrid.Length;
+        // int gridCol = tttGrid.GetLength(0);
 
         // Console.WriteLine("Row {0} , Col {1}", gridRow, gridCol);
 
@@ -38,22 +39,30 @@ public class Connect4 {
              |     |
         ");
 
-        int turn = gridRow * gridCol;
+        int turn = tttGrid.Length;
         int currPlayer = 1;
-
+        
+        Console.WriteLine(turn);
+//*
         while(turn != 0) {
             
             
             Console.Write("Player {0}'s turn:\nRow:", currPlayer);
-            int playerRow = int.Parse(Console.ReadLine());
+            int playerRow = int.Parse(Console.ReadLine()) - 1;
             Console.Write("Column:");
-            int playerCol = int.Parse(Console.ReadLine());
-            if(playerRow > 3 || playerCol > 3 || playerRow < 1 || playerCol < 1){
+            int playerCol = int.Parse(Console.ReadLine()) - 1;
+
+            
+            if(playerRow > 2 || playerCol > 2 || playerRow < 0 || playerCol < 0){
                 Console.WriteLine("Invalid Row/Column. Please input a number 1 through 3");
                 continue;
             }
-            int val = tttGrid[playerRow-1, playerCol-1];
-            // Console.WriteLine("Box taken? {0}", val);
+            if(tttGrid[playerRow, playerCol] == null) {
+                tttGrid[playerRow, playerCol] = currPlayer;
+            }
+            int val = tttGrid[playerRow, playerCol];
+
+            Console.WriteLine("Box taken? {0}", val);
             // if(tttGrid[playerRow-1, playerCol-1] != 0) {
             //     Console.WriteLine("Somebody already went there! Go again.");
             //     continue;
@@ -62,7 +71,7 @@ public class Connect4 {
             currPlayer = (currPlayer == 1) ? 2 : 1;
             turn--;
         }
-
+//*/
     }
 
 
