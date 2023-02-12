@@ -52,7 +52,7 @@ public class Connect4 {
             if(gameBoard[colProgress[playerCol], playerCol] == 0) {
                 gameBoard[colProgress[playerCol], playerCol] = currPlayer;
                 colProgress[playerCol]--;
-                bool playerWon = checkWin(gameBoard, currPlayer, numberToWin); // REMEMBER to adjust numToWin
+                bool playerWon = checkWin(gameBoard, currPlayer, numberToWin); // REMEMBER to adjust numToWin accordingly
                 if(playerWon) {
                     drawGrid(gameBoard);
                     Console.WriteLine("Player {0} won!!", currPlayer);
