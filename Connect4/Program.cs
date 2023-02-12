@@ -5,15 +5,21 @@ using System.Text;
 public class Connect4 {
     public static void Main(string[] args) {
 
-        int[,] tttGrid = new int[7, 7];
-        int[] colProgress = new int[tttGrid.GetLength(0)];
-        Array.Fill(colProgress, tttGrid.GetLength(0)-1);
+        int[,] tttGrid = new int[6, 7];
+        int gridCols = tttGrid.Length/tttGrid.GetLength(0);
+        int gridRows = tttGrid.GetLength(0);
+        
+        int[] colProgress = new int[gridCols];
+        Array.Fill(colProgress, gridRows-1);
 
         int turn = tttGrid.Length;
         int currPlayer = 1;
         int numberToWin = 4;
+
         int player1 = 1;
         int player2 = 2;
+        
+
         
 //*
         while(turn != 0) {
@@ -33,15 +39,14 @@ public class Connect4 {
             int playerCol = 0;
             bool playerInput = int.TryParse(Console.ReadLine(), out playerCol);
             playerCol--;
-            Console.WriteLine(playerCol);
         //*/
 
         // IF PLAYER DID NOT INPUT A VALUE OR A VALID COLUMN, PROMPT PLAYER TO TRY AGAIN
-            if(playerCol > tttGrid.GetLength(0)-1 || playerCol < 0 || !playerInput){
+            if(playerCol > gridCols-1 || playerCol < 0 || !playerInput){
                 Console.WriteLine("Invalid Column. Please input a number 1 through 3\n");
                 continue;
             }
-        // IF COLUMN IS FULL PROMPT PLAYER TO TRY AGAIN
+        // IF COLUMN IS FULL, PROMPT PLAYER TO TRY AGAIN
             if(colProgress[playerCol] < 0) {
                 Console.WriteLine("That column is full. Choose another column.\n");
                 continue;
@@ -67,20 +72,19 @@ public class Connect4 {
     }
 
     public static void drawGrid(int[,] grid) {
-        for(int i = 0; i < grid.GetLength(0); i++) {
-            for(int k = 0; k < grid.GetLength(0); k++) {
+        int gridRows = grid.GetLength(0);
+        int gridCols = grid.Length/grid.GetLength(0);
+
+        for(int i = 0; i < gridRows; i++) {
+            for(int k = 0; k < gridCols; k++) {
                 Console.Write("     ");
-                if(k != grid.GetLength(0) - 1) Console.Write("|");
+                if(k != gridCols - 1) Console.Write("|");
             }
             Console.WriteLine();
-            for(int j = 0; j < grid.GetLength(0); j++) {
+            for(int j = 0; j < gridCols; j++) {
                 int val = grid[i, j];
                 switch (val)
                 {
-                    case 0:
-                        Console.ForegroundColor = ConsoleColor.White;
-                        Console.Write("  -  ");
-                        break;
                     case 1:
                         Console.ForegroundColor = ConsoleColor.Red;
                         Console.Write("  O  ");
@@ -93,18 +97,19 @@ public class Connect4 {
                         break;                        
                     default: 
                         Console.ForegroundColor = ConsoleColor.White;
+                        Console.Write("  -  ");
                         break;
                 }
-                if(j != grid.GetLength(0) - 1) Console.Write("|");
+                if(j != gridCols - 1) Console.Write("|");
             }
             Console.WriteLine();
-            for(int k = 0; k < grid.GetLength(0); k++) {
+            for(int k = 0; k < gridCols; k++) {
                 Console.Write("     ");
-                if(k != grid.GetLength(0) - 1) Console.Write("|");
+                if(k != gridCols - 1) Console.Write("|");
             }
             Console.WriteLine();
-            if(i != grid.GetLength(0) - 1){
-                for(int k = 0; k < grid.GetLength(0)+1; k++) {
+            if(i != gridRows - 1){
+                for(int k = 0; k < gridCols+1; k++) {
                     Console.Write("-----");
                 }
             }
@@ -113,11 +118,13 @@ public class Connect4 {
     }
 
     private static bool checkWin(int[,] grid, int player, int numToWin) {
+        int gridRows = grid.GetLength(0);
+        int gridCols = grid.Length/grid.GetLength(0);
 
-        int[] winV = new int[grid.GetLength(0)]; // keeps track of vertical win
-        for(int i = grid.GetLength(0)-1; i >= 0 ; i--) {
+        int[] winV = new int[gridCols]; // keeps track of vertical win
+        for(int i = gridRows-1; i >= 0 ; i--) {
             int winH = 0; // keeps track of horizontal win
-            for(int j = 0; j < grid.GetLength(0); j++) {
+            for(int j = 0; j < gridCols; j++) {
                 if(grid[i, j] == player) {
                     winH ++;
                     winV[j]++;
