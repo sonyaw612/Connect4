@@ -83,6 +83,7 @@ public class Connect4 {
         Console.WriteLine();
         for(int i = 0; i < gridRows; i++) {
             for(int k = 0; k < gridCols; k++) {
+                Console.ForegroundColor = ConsoleColor.Yellow;
                 Console.Write("|     ");
                 if(k == gridCols - 1) Console.Write("|");
             }
@@ -92,24 +93,34 @@ public class Connect4 {
                 switch (val)
                 {
                     case 1:
+                        Console.ForegroundColor = ConsoleColor.Yellow;
+                        Console.Write("|");
                         Console.ForegroundColor = ConsoleColor.Red;
-                        Console.Write("|  O  ");
+                        Console.Write("  O  ");
                         Console.ForegroundColor = ConsoleColor.White;
                         break;
                     case 2:
+                        Console.ForegroundColor = ConsoleColor.Yellow;
+                        Console.Write("|");
                         Console.ForegroundColor = ConsoleColor.Blue;
-                        Console.Write("|  O  ");
+                        Console.Write("  O  ");
                         Console.ForegroundColor = ConsoleColor.White;
                         break;                        
                     default: 
+                        Console.ForegroundColor = ConsoleColor.Yellow;
+                        Console.Write("|");
                         Console.ForegroundColor = ConsoleColor.White;
-                        Console.Write("|  -  ");
+                        Console.Write("  -  ");
                         break;
                 }
-                if(j == gridCols - 1) Console.Write("|");
+                if(j == gridCols - 1) {
+                    Console.ForegroundColor = ConsoleColor.Yellow;
+                    Console.Write("|");
+                }
             }
             Console.WriteLine();
             for(int k = 0; k < gridCols; k++) {
+                Console.ForegroundColor = ConsoleColor.Yellow;
                 Console.Write("|     ");
                 if(k == gridCols - 1) Console.Write("|");
             }
@@ -117,6 +128,7 @@ public class Connect4 {
             for(int k = 0; k < gridCols; k++) {
                 Console.Write("------");
             }
+            Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine();
         }
         for(int i = 0; i < gridCols; i++) {
@@ -142,13 +154,6 @@ public class Connect4 {
                     winV[j] = 0;
                 }
                 if(winH == numToWin || winV[j] == numToWin) {
-
-                    if(player == 1) {
-                        Console.Write("Vertical win:");
-                        for(int t = 0; t < winV.Length; t++) {
-                            Console.Write(" {0}", winV[t]);
-                        } Console.WriteLine();
-                    }
                     return true;
                 }
             }
