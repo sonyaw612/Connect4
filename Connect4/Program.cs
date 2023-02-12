@@ -10,14 +10,14 @@ TO-DO List:
 public class Connect4 {
     public static void Main(string[] args) {
 
-        int[,] tttGrid = new int[6, 7];
-        int gridCols = tttGrid.Length/tttGrid.GetLength(0);
-        int gridRows = tttGrid.GetLength(0);
+        int[,] gameBoard = new int[6, 7];
+        int gridCols = gameBoard.Length/gameBoard.GetLength(0);
+        int gridRows = gameBoard.GetLength(0);
         
         int[] colProgress = new int[gridCols];
         Array.Fill(colProgress, gridRows-1);
 
-        int turn = tttGrid.Length;
+        int turn = gameBoard.Length;
         int currPlayer = 1;
         int numberToWin = 4;
 
@@ -29,26 +29,18 @@ public class Connect4 {
 //*
         while(turn != 0) {
 
-            drawGrid(tttGrid);
-            
-        /*  Console.ForegroundColor = (currPlayer == 1) ? ConsoleColor.Red : ConsoleColor.Blue;
-            Console.Write("Player {0}'s turn:\nRow: ", currPlayer);
-            Console.ForegroundColor = ConsoleColor.White;
-            int playerRow = int.Parse(Console.ReadLine()) - 1;
-        //*/
+            drawGrid(gameBoard);
+            // Console.ForegroundColor = (currPlayer == player1) ? ConsoleColor.Red : ConsoleColor.Blue;
+            // promptRow(currPlayer);
 
         //* PROMPTING USER FOR COLUMN INPUT
             Console.ForegroundColor = (currPlayer == player1) ? ConsoleColor.Red : ConsoleColor.Blue;
-            Console.Write("Column: ");
-            Console.ForegroundColor = ConsoleColor.White;
-            int playerCol = 0;
-            bool playerInput = int.TryParse(Console.ReadLine(), out playerCol);
-            playerCol--;
+            int playerCol = promptCol(currPlayer) - 1;
         //*/
 
         // IF PLAYER DID NOT INPUT A VALUE OR A VALID COLUMN, PROMPT PLAYER TO TRY AGAIN
-            if(playerCol > gridCols-1 || playerCol < 0 || !playerInput){
-                Console.WriteLine("Invalid Column. Please input a number 1 through 3\n");
+            if(playerCol > gridCols-1 || playerCol < 0){
+                Console.WriteLine("Invalid Column. Please input a number 1 through {0}\n", gridCols);
                 continue;
             }
         // IF COLUMN IS FULL, PROMPT PLAYER TO TRY AGAIN
@@ -57,12 +49,12 @@ public class Connect4 {
                 continue;
             }
         // IF ABLE TO, PLACE PIECE IN DESIRED COLUMN, AND CHECK WIN
-            if(tttGrid[colProgress[playerCol], playerCol] == 0) {
-                tttGrid[colProgress[playerCol], playerCol] = currPlayer;
+            if(gameBoard[colProgress[playerCol], playerCol] == 0) {
+                gameBoard[colProgress[playerCol], playerCol] = currPlayer;
                 colProgress[playerCol]--;
-                bool playerWon = checkWin(tttGrid, currPlayer, numberToWin); // REMEMBER to adjust numToWin
+                bool playerWon = checkWin(gameBoard, currPlayer, numberToWin); // REMEMBER to adjust numToWin
                 if(playerWon) {
-                    drawGrid(tttGrid);
+                    drawGrid(gameBoard);
                     Console.WriteLine("Player {0} won!!", currPlayer);
                     break;
                 }
@@ -74,6 +66,22 @@ public class Connect4 {
             turn--; 
         }
 //*/
+    }
+
+    public static int promptRow(int currPlayer){
+        Console.Write("Row: ", currPlayer);
+        Console.ForegroundColor = ConsoleColor.White;
+        int playerRow = 0;
+        bool playerInput = int.TryParse(Console.ReadLine(), out playerRow);
+        return playerInput ? playerRow : -1;
+    }
+
+    public static int promptCol(int currPlayer){
+        Console.Write("Column: ");
+        Console.ForegroundColor = ConsoleColor.White;
+        int playerCol = 0;
+        bool playerInput = int.TryParse(Console.ReadLine(), out playerCol);
+        return playerInput ? playerCol : -1;
     }
 
     public static void drawGrid(int[,] grid) {
