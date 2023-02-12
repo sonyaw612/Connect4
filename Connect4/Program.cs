@@ -2,6 +2,11 @@
 using System.Linq;
 using System.Text;
 
+/*
+TO-DO List:
+    - Logic for diagonal wins
+*/
+
 public class Connect4 {
     public static void Main(string[] args) {
 
@@ -75,10 +80,11 @@ public class Connect4 {
         int gridRows = grid.GetLength(0);
         int gridCols = grid.Length/grid.GetLength(0);
 
+        Console.WriteLine();
         for(int i = 0; i < gridRows; i++) {
             for(int k = 0; k < gridCols; k++) {
-                Console.Write("     ");
-                if(k != gridCols - 1) Console.Write("|");
+                Console.Write("|     ");
+                if(k == gridCols - 1) Console.Write("|");
             }
             Console.WriteLine();
             for(int j = 0; j < gridCols; j++) {
@@ -87,34 +93,36 @@ public class Connect4 {
                 {
                     case 1:
                         Console.ForegroundColor = ConsoleColor.Red;
-                        Console.Write("  O  ");
+                        Console.Write("|  O  ");
                         Console.ForegroundColor = ConsoleColor.White;
                         break;
                     case 2:
                         Console.ForegroundColor = ConsoleColor.Blue;
-                        Console.Write("  O  ");
+                        Console.Write("|  O  ");
                         Console.ForegroundColor = ConsoleColor.White;
                         break;                        
                     default: 
                         Console.ForegroundColor = ConsoleColor.White;
-                        Console.Write("  -  ");
+                        Console.Write("|  -  ");
                         break;
                 }
-                if(j != gridCols - 1) Console.Write("|");
+                if(j == gridCols - 1) Console.Write("|");
             }
             Console.WriteLine();
             for(int k = 0; k < gridCols; k++) {
-                Console.Write("     ");
-                if(k != gridCols - 1) Console.Write("|");
+                Console.Write("|     ");
+                if(k == gridCols - 1) Console.Write("|");
             }
             Console.WriteLine();
-            if(i != gridRows - 1){
-                for(int k = 0; k < gridCols+1; k++) {
-                    Console.Write("-----");
-                }
+            for(int k = 0; k < gridCols; k++) {
+                Console.Write("------");
             }
             Console.WriteLine();
         }
+        for(int i = 0; i < gridCols; i++) {
+            Console.Write("   {0}  ", i + 1);
+        }
+        Console.WriteLine("\n  ---   ---   ---   ---   ---   ---   ---  ");
     }
 
     private static bool checkWin(int[,] grid, int player, int numToWin) {
