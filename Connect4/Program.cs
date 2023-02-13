@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Linq;
 using System.Text;
-
-/*
-TO-DO List:
-    - Logic for diagonal wins
-*/
 
 public class Connect4 {
     public static void Main(string[] args) {
@@ -92,6 +86,9 @@ public class Connect4 {
         int gridCols = grid.Length/grid.GetLength(0);
 
         Console.WriteLine();
+        Console.ForegroundColor = ConsoleColor.Yellow;
+
+        Console.WriteLine("*****************************************************");
         for(int i = 0; i < gridRows; i++) {
             Console.Write("     ");
             for(int k = 0; k < gridCols; k++) {
