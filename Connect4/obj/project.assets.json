@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\mspat\\Documents\\Revature\\Mspatel\\Connect4\\Connect4\\Connect4.csproj",
+      "projectUniqueName": "C:\\Users\\mspat\\Documents\\Revature\\Mspatel\\wk1\\Connect4\\Connect4\\Connect4.csproj",
       "projectName": "Connect4",
-      "projectPath": "C:\\Users\\mspat\\Documents\\Revature\\Mspatel\\Connect4\\Connect4\\Connect4.csproj",
+      "projectPath": "C:\\Users\\mspat\\Documents\\Revature\\Mspatel\\wk1\\Connect4\\Connect4\\Connect4.csproj",
       "packagesPath": "C:\\Users\\mspat\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\mspat\\Documents\\Revature\\Mspatel\\Connect4\\Connect4\\obj\\",
+      "outputPath": "C:\\Users\\mspat\\Documents\\Revature\\Mspatel\\wk1\\Connect4\\Connect4\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\mspat\\AppData\\Roaming\\NuGet\\NuGet.Config"

@@ -2,13 +2,13 @@
 
 namespace TicTacToe
 {
-    class MainMenu
+    public class MainMenu
     {
         static char[] arr = {'0', '1', '2', '3', '4', '5', '6', '7', '8'};
         static int playerTurn = 1; 
         static int choosefield; 
 
-        public static void Main(string[] args)
+        public void Start()
         {
             Console.WriteLine("TicTacToe Game");
             TTOBoard();
