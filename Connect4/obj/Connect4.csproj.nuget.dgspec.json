@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/Users/qweenii/Computer_Programming/Revature/Connect4/Connect4/Connect4.csproj": {}
+    "C:\\Users\\Sonya\\Revature\\230206-NET\\Trainer_Code\\wk1\\Exercises\\Connect4\\Connect4\\Connect4.csproj": {}
   },
   "projects": {
-    "/Users/qweenii/Computer_Programming/Revature/Connect4/Connect4/Connect4.csproj": {
+    "C:\\Users\\Sonya\\Revature\\230206-NET\\Trainer_Code\\wk1\\Exercises\\Connect4\\Connect4\\Connect4.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/qweenii/Computer_Programming/Revature/Connect4/Connect4/Connect4.csproj",
+        "projectUniqueName": "C:\\Users\\Sonya\\Revature\\230206-NET\\Trainer_Code\\wk1\\Exercises\\Connect4\\Connect4\\Connect4.csproj",
         "projectName": "Connect4",
-        "projectPath": "/Users/qweenii/Computer_Programming/Revature/Connect4/Connect4/Connect4.csproj",
-        "packagesPath": "/Users/qweenii/.nuget/packages/",
-        "outputPath": "/Users/qweenii/Computer_Programming/Revature/Connect4/Connect4/obj/",
+        "projectPath": "C:\\Users\\Sonya\\Revature\\230206-NET\\Trainer_Code\\wk1\\Exercises\\Connect4\\Connect4\\Connect4.csproj",
+        "packagesPath": "C:\\Users\\Sonya\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Sonya\\Revature\\230206-NET\\Trainer_Code\\wk1\\Exercises\\Connect4\\Connect4\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/qweenii/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\Sonya\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
@@ -53,7 +53,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.102/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     }

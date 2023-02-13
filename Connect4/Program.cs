@@ -51,11 +51,12 @@ public class Connect4 {
         // IF ABLE TO, PLACE PIECE IN DESIRED COLUMN, AND CHECK WIN
             if(gameBoard[colProgress[playerCol], playerCol] == 0) {
                 gameBoard[colProgress[playerCol], playerCol] = currPlayer;
+                int[] coords = {colProgress[playerCol], playerCol};
+                bool playerWon = checkWin(gameBoard, currPlayer, numberToWin, coords); // REMEMBER to adjust numToWin accordingly
                 colProgress[playerCol]--;
-                bool playerWon = checkWin(gameBoard, currPlayer, numberToWin); // REMEMBER to adjust numToWin accordingly
                 if(playerWon) {
                     drawGrid(gameBoard);
-                    Console.WriteLine("Player {0} won!!", currPlayer);
+                    displayWin(currPlayer);
                     break;
                 }
             }   
@@ -145,29 +146,69 @@ public class Connect4 {
         Console.WriteLine("\n  ---   ---   ---   ---   ---   ---   ---  ");
     }
 
-    private static bool checkWin(int[,] grid, int player, int numToWin) {
+    private static bool checkWin(int[,] grid, int player, int numToWin, int[] coord) {
         int gridRows = grid.GetLength(0);
         int gridCols = grid.Length/grid.GetLength(0);
+        int y = coord[0]; // rows
+        int x = coord[1]; // cols
+        int startingY;
+        int startingX = x - numToWin;
 
-        int[] winV = new int[gridCols]; // keeps track of vertical win
-        for(int i = gridRows-1; i >= 0 ; i--) {
-            int winH = 0; // keeps track of horizontal win
-            for(int j = 0; j < gridCols; j++) {
-                if(grid[i, j] == player) {
-                    winH ++;
-                    winV[j]++;
-                }
-                else {
-                    winH = 0;
-                    winV[j] = 0;
-                }
-                if(winH == numToWin || winV[j] == numToWin) {
-                    return true;
-                }
-            }
+        int winV = 0;
+        int winH = 0;
+        startingY = y - numToWin;
+        for(int i = 0; i < numToWin*2; i++) {
+            if(startingX+i > gridCols-1 || startingY+i > gridRows-1) break;
+            if(startingX+i < 0 || startingY+i < 0) continue;
+            
+            // CHECKING FOR HORIZONTAL WIN
+            if(grid[y, startingX+i] == player) {
+                winH++;
+                if(winH == numToWin) return true;
+            } else winH = 0;
+            
+            // CHECKING FOR VERTICAL WIN
+            if(grid[startingY+i, x] == player) {
+                winV++;
+                if(winV == numToWin) return true;
+            } else winV = 0;
         }
 
-        return false;
 
+        // CHECK FOR LEFT DOWN DIAGONAL WIN
+        int diagCountLD = 0;
+        for(int i = 0; i < numToWin*2; i++) {
+            if(startingX + i < 0 || startingY + i < 0) continue;
+            if(startingX+i > gridCols-1 || startingY+i > gridRows-1) break;
+            if(grid[startingY + i, startingX + i] == player) {
+                diagCountLD++;
+                if(diagCountLD == numToWin) return true;
+            }
+            else diagCountLD = 0;
+        }
+
+        // CHECK FOR RIGHT UP DIAGONAL WIN
+        startingY = y + numToWin;
+        int diagCountRU = 0;
+        for(int i = 0; i < numToWin*2; i++) {
+            if(startingX + i < 0 || startingY-i > gridRows-1) continue;
+            if(startingX+i > gridCols-1 || startingY - i < 0) break;
+            if(grid[startingY - i, startingX + i] == player) {
+                diagCountRU++;
+                if(diagCountRU == numToWin) return true;
+            }
+            else diagCountRU = 0;
+        }
+        return false;
     }
+    
+    public static void displayWin(int player) {
+        Console.WriteLine(@"
+        ***************************************
+                    PLAYER {0} WON !!!
+        ***************************************
+        ", player);
+    }
+
+
 }
