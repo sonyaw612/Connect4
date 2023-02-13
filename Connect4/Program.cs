@@ -56,7 +56,9 @@ public class Connect4 {
                 colProgress[playerCol]--;
                 if(playerWon) {
                     drawGrid(gameBoard);
+                    Console.ForegroundColor = currPlayer == player1 ? ConsoleColor.Red : ConsoleColor.Blue;
                     displayWin(currPlayer);
+                    Console.ForegroundColor = ConsoleColor.White;
                     break;
                 }
             }   
@@ -91,12 +93,13 @@ public class Connect4 {
 
         Console.WriteLine();
         for(int i = 0; i < gridRows; i++) {
+            Console.Write("     ");
             for(int k = 0; k < gridCols; k++) {
                 Console.ForegroundColor = ConsoleColor.Yellow;
                 Console.Write("|     ");
                 if(k == gridCols - 1) Console.Write("|");
             }
-            Console.WriteLine();
+            Console.Write("\n     ");
             for(int j = 0; j < gridCols; j++) {
                 int val = grid[i, j];
                 switch (val)
@@ -127,23 +130,24 @@ public class Connect4 {
                     Console.Write("|");
                 }
             }
-            Console.WriteLine();
+            Console.Write("\n     ");
             for(int k = 0; k < gridCols; k++) {
                 Console.ForegroundColor = ConsoleColor.Yellow;
                 Console.Write("|     ");
                 if(k == gridCols - 1) Console.Write("|");
             }
-            Console.WriteLine();
+            Console.Write("\n     -");
             for(int k = 0; k < gridCols; k++) {
                 Console.Write("------");
             }
             Console.ForegroundColor = ConsoleColor.White;
             Console.WriteLine();
         }
+        Console.Write("     ");
         for(int i = 0; i < gridCols; i++) {
             Console.Write("   {0}  ", i + 1);
         }
-        Console.WriteLine("\n  ---   ---   ---   ---   ---   ---   ---  ");
+        Console.WriteLine("\n       ---   ---   ---   ---   ---   ---   ---  \n");
     }
 
     private static bool checkWin(int[,] grid, int player, int numToWin, int[] coord) {
@@ -205,7 +209,7 @@ public class Connect4 {
     public static void displayWin(int player) {
         Console.WriteLine(@"
         ***************************************
-                    PLAYER {0} WON !!!
+                  PLAYER {0} WON !!!           
         ***************************************
         ", player);
     }
